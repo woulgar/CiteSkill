@@ -8,6 +8,8 @@
   },
   "homepage": "https://github.com/woulgar/CiteSkill",
   "repository": "https://github.com/woulgar/CiteSkill",
+  "privacyPolicyUrl": "https://github.com/woulgar/CiteSkill/blob/main/claude-plugin/PRIVACY.md",
+  "icon": "./.claude-plugin/icon.svg",
   "license": "MIT",
   "keywords": [
     "citation",

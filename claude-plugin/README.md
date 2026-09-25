@@ -51,6 +51,16 @@ citeskill summary
 See [`../CLAUDE_INTEGRATION.md`](../CLAUDE_INTEGRATION.md) for installation,
 validation, and marketplace guidance.
 
+## Data and execution
+
+The plugin guides Claude to run the bundled JavaScript CLI locally with Node.js and
+read or write `.citeskill/citations.json` and a README section in the current Git
+repository. The CLI invokes local Git commands to verify commit links. It does not
+read environment credentials, contact a network service, upload repository data, or
+commit or push changes. The user decides which names and links to cite. A rendered
+README includes a Shields.io badge; viewing that README can request the badge from
+Shields.io. See the [privacy policy](PRIVACY.md).
+
 ## Principles
 
 - Cite only sources that directly contributed to the cited commit or PR.

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="CiteSkill icon">
+  <rect width="256" height="256" rx="48" fill="#102a43"/>
+  <path d="M67 72h93a30 30 0 0 1 0 60H95a30 30 0 0 0 0 60h94" fill="none" stroke="#7dd3c7" stroke-width="24" stroke-linecap="round"/>
+  <circle cx="188" cy="192" r="14" fill="#ffca70"/>
+</svg>
