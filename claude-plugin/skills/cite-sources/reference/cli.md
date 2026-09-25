@@ -4,8 +4,8 @@ Source of truth: `src/cli.ts` and `src/core.ts` in the CiteSkill repository. Run
 every command from the root of the repository being cited.
 
 Invocation: `citeskill` if it is on `PATH`, otherwise
-`node <path-to-CiteSkill>/dist/cli.js` after `npm install && npm run build` in the
-CiteSkill checkout. Requires Node.js 20+ and git.
+`node "${CLAUDE_PLUGIN_ROOT}/scripts/cli.js"` from an installed plugin, or
+`node <path-to-CiteSkill>/dist/cli.js` after a checkout build. Requires Node.js 20+ and git.
 
 `citeskill --help` prints a command summary. Running with no arguments or an unknown command prints
 `Usage: citeskill <init|add|validate|render|commit-link|summary> [options]` and exits

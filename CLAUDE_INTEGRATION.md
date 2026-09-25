@@ -54,10 +54,10 @@ Each manifest entry cites one work unit through `ref`:
 The cited work commit can precede the citation record. The follow-up commit that
 adds the manifest and README changes carries the trailer printed by `commit-link`.
 
-The CLI is not published to a package registry yet. Use `citeskill` if it is on
-`PATH`; otherwise build a checkout (`npm install && npm run build`) and run
-`node <path-to-CiteSkill>/dist/cli.js`. The plugin does not bundle the CLI, run
-hooks, or write files on its own.
+The CLI is bundled at `scripts/cli.js` inside the plugin. Use `citeskill` if it is
+on `PATH`; otherwise run `node "${CLAUDE_PLUGIN_ROOT}/scripts/cli.js"`. A built
+checkout can also run `node <path-to-CiteSkill>/dist/cli.js`. The plugin does not
+run hooks or write files on its own.
 
 ### Ground rules enforced by the skill
 
@@ -184,24 +184,19 @@ This repository is the marketplace (section 3.2). For a release:
 
 1. Keep `version` in `claude-plugin/.claude-plugin/plugin.json` and both
    marketplace entries in sync. `claude plugin tag` can create a
-   `citeskill--v<version>` git tag after checking that they agree. **[VERIFY]**
+   `citeskill--v<version>` git tag after checking that they agree.
 2. Run the validation commands in section 4.
 3. Tag a release.
 
-### 5.2 Official / community marketplaces
+### 5.2 Anthropic community marketplace
 
-**[VERIFY]** the current submission channel, eligibility, and required metadata.
-Reviewers typically check for a valid manifest, a clear description, an open-source
-license (MIT, per `LICENSE`), a public source repository, and no undisclosed
-binaries, network calls, hooks, or MCP servers. This plugin ships only Markdown
-skills/commands and JSON manifests. Document the separately installed CLI and the
-privacy stance: no transcripts are recorded or uploaded.
+After the Codex submission, submit this plugin through the [Console plugin form](https://platform.claude.com/plugins/submit) as an individual author, or the [claude.ai directory form](https://claude.ai/admin-settings/directory/submissions/plugins/new) for an eligible Team or Enterprise organization. Anthropic's [publishing guide](https://code.claude.com/docs/en/plugins/publish) says these forms feed the `claude-community` marketplace; the official Anthropic marketplace has a separate partner path. Validate the public plugin and provide the repository URL. This package includes compiled JavaScript for the local CLI, and it does not run hooks or MCP servers.
 
 ### 5.3 Pre-submission checklist
 
 - [ ] `claude plugin validate --strict` passes for the plugin and both marketplaces.
 - [ ] Smoke test in section 4 passes.
-- [ ] CLI distribution documented (currently a local build).
+- [ ] Bundled CLI tested from an installed plugin.
 - [ ] Version bumped and tagged.
 
 ## 6. Compatibility notes

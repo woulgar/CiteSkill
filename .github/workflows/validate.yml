@@ -15,4 +15,5 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
+      - run: git diff --exit-code -- plugins/citeskill/scripts claude-plugin/scripts
       - run: node dist/cli.js validate --trailers

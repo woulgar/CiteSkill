@@ -4,7 +4,7 @@ CiteSkill records the agents, models, skills, plugins, apps, MCP servers, and so
 
 ## Install and use
 
-Requires Node.js 20 or later. During the private beta, clone this repository and run `npm install && npm run build`. From a project that should contain citations, run `node <path-to-CiteSkill>/dist/cli.js` with the commands below. After the public release, the package can be installed normally when distribution is available.
+Requires Node.js 20 or later. The Codex and Claude plugins bundle the CLI at `scripts/cli.js`. For direct CLI use during the private beta, clone this repository and run `npm install && npm run build`; from the target project run `node <path-to-CiteSkill>/dist/cli.js` with the commands below. If `citeskill` is on your `PATH`, use the shorter form shown here.
 
 ```sh
 citeskill init

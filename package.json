@@ -5,7 +5,7 @@
   "type": "module",
   "bin": { "citeskill": "./dist/cli.js" },
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.json && node scripts/sync-plugin-cli.mjs",
     "test": "npm run build && node --test dist/*.test.js",
     "check": "npm run test"
   },

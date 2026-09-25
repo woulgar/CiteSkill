@@ -19,9 +19,8 @@ with a `CiteSkill-Refs:` git trailer, using the `citeskill` CLI.
 ## Requirements
 
 - Claude Code with plugin support.
-- Node.js 20+ and the CiteSkill CLI, either as `citeskill` on `PATH` or as a local
-  build run with `node <path-to-CiteSkill>/dist/cli.js` (the plugin does not bundle
-  it).
+- Node.js 20+ and git. The CLI is bundled at `scripts/cli.js`; run it with
+  `node "${CLAUDE_PLUGIN_ROOT}/scripts/cli.js"` when `citeskill` is not on `PATH`.
 - git (2.32+ for `git commit --trailer`).
 
 ## Quick start

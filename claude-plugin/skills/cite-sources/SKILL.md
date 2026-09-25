@@ -38,10 +38,10 @@ ask for a separate confirmation before each write.
 
 ## Invoking the CLI
 
-Use `citeskill` if it is on `PATH`. Otherwise use a local build:
-`node <path-to-CiteSkill>/dist/cli.js` (built with `npm install && npm run build`).
-If neither is available and the path is unknown, ask the user where CiteSkill is
-installed, or stop. Run all commands from the root of the repository being cited.
+Use `citeskill` if it is on `PATH`. Otherwise use the CLI bundled with this plugin:
+`node "${CLAUDE_PLUGIN_ROOT}/scripts/cli.js"`. If the plugin root is unavailable,
+use `node <path-to-CiteSkill>/dist/cli.js` from a built checkout. Run all commands
+from the root of the repository being cited.
 
 `citeskill --help` prints a command summary; there is no per-command `--help`. Running the CLI with no arguments or an unknown
 command prints a one-line usage message and exits with status 1. See

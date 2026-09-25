@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="CiteSkill logo">
+  <rect width="512" height="512" rx="108" fill="#173B73"/>
+  <path d="M346 126H218c-75 0-126 51-126 130s51 130 126 130h128" fill="none" stroke="#F4F8FF" stroke-width="54" stroke-linecap="round"/>
+  <path d="M288 202h116M288 256h92M288 310h116" fill="none" stroke="#61D6C2" stroke-width="23" stroke-linecap="round"/>
+</svg>
