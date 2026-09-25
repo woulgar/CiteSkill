@@ -1,0 +1,18 @@
+{
+  "name": "citeskill",
+  "version": "0.1.0",
+  "description": "Record direct agentic-source citations (models, agents, tools, skills, MCP servers) in .citeskill/citations.json and link them to commits via the CiteSkill CLI.",
+  "author": {
+    "name": "CiteSkill contributors"
+  },
+  "homepage": "https://github.com/woulgar/CiteSkill",
+  "repository": "https://github.com/woulgar/CiteSkill",
+  "license": "MIT",
+  "keywords": [
+    "citation",
+    "attribution",
+    "provenance",
+    "ai-disclosure",
+    "git-trailer"
+  ]
+}

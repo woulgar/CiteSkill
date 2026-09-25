@@ -1,0 +1,120 @@
+import { existsSync, readFileSync, mkdirSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
+
+export const MANIFEST = '.citeskill/citations.json';
+export const KINDS = ['agent', 'model', 'skill', 'plugin', 'app', 'mcp', 'project'] as const;
+export type Kind = typeof KINDS[number];
+export type WorkRef = { type: 'commit' | 'pr'; value: string };
+export type Entry = {
+  id: string;
+  kind: Kind;
+  name: string;
+  ref: WorkRef;
+  url?: string;
+  provider?: string;
+  model?: string;
+  estimatedShare?: number;
+  evidenceUrl?: string;
+};
+export type Manifest = { schemaVersion: 1; entries: Entry[] };
+
+const isObject = (x: unknown): x is Record<string, unknown> => typeof x === 'object' && x !== null && !Array.isArray(x);
+const isSafeUrl = (x: unknown): x is string => typeof x === 'string' && /^https:\/\/[^\s]+$/i.test(x);
+const refKey = (e: Entry) => `${e.ref.type}:${e.ref.value}`;
+
+export function validate(data: unknown): string[] {
+  const errors: string[] = [];
+  if (!isObject(data) || data.schemaVersion !== 1 || !Array.isArray(data.entries)) return ['Expected schemaVersion 1 and an entries array.'];
+  const ids = new Set<string>();
+  const shares = new Map<string, number>();
+  data.entries.forEach((raw: unknown, i: number) => {
+    const p = `entries[${i}]`;
+    if (!isObject(raw)) { errors.push(`${p} must be an object.`); return; }
+    if (typeof raw.id !== 'string' || !/^[a-z0-9][a-z0-9-]{1,63}$/.test(raw.id)) errors.push(`${p}.id must be a unique lowercase slug (2-64 characters).`);
+    else if (ids.has(raw.id)) errors.push(`${p}.id is duplicated.`);
+    else ids.add(raw.id);
+    if (!KINDS.includes(raw.kind as Kind)) errors.push(`${p}.kind is invalid.`);
+    if (typeof raw.name !== 'string' || !raw.name.trim() || /[\r\n]/.test(raw.name)) errors.push(`${p}.name must be a nonempty single line.`);
+    if (!isObject(raw.ref) || !['commit', 'pr'].includes(String(raw.ref.type)) || typeof raw.ref.value !== 'string' || !raw.ref.value.trim()) errors.push(`${p}.ref must contain a commit or PR and a value.`);
+    else if (raw.ref.type === 'commit' && !/^[0-9a-f]{7,40}$/i.test(raw.ref.value)) errors.push(`${p}.ref.value must be a Git commit SHA.`);
+    else if (raw.ref.type === 'pr' && !/^\d+$/.test(raw.ref.value)) errors.push(`${p}.ref.value must be a PR number.`);
+    for (const key of ['url', 'evidenceUrl'] as const) if (raw[key] !== undefined && !isSafeUrl(raw[key])) errors.push(`${p}.${key} must be an HTTPS URL.`);
+    for (const key of ['provider', 'model'] as const) if (raw[key] !== undefined && (typeof raw[key] !== 'string' || !raw[key].trim() || /[\r\n]/.test(raw[key]))) errors.push(`${p}.${key} must be a nonempty single line.`);
+    if (raw.estimatedShare !== undefined) {
+      if (!['agent', 'model'].includes(String(raw.kind))) errors.push(`${p}.estimatedShare is only valid for agent or model entries.`);
+      if (typeof raw.estimatedShare !== 'number' || !Number.isFinite(raw.estimatedShare) || raw.estimatedShare < 0 || raw.estimatedShare > 100) errors.push(`${p}.estimatedShare must be between 0 and 100.`);
+      else if (isObject(raw.ref) && typeof raw.ref.value === 'string') {
+        const key = `${raw.ref.type}:${raw.ref.value}:${raw.kind}`;
+        shares.set(key, (shares.get(key) ?? 0) + raw.estimatedShare);
+      }
+    }
+    const allowed = new Set(['id', 'kind', 'name', 'ref', 'url', 'provider', 'model', 'estimatedShare', 'evidenceUrl']);
+    for (const key of Object.keys(raw)) if (!allowed.has(key)) errors.push(`${p}.${key} is not part of schema v1.`);
+  });
+  for (const [key, value] of shares) if (value > 100.000001) errors.push(`Estimated shares for ${key} exceed 100%.`);
+  for (const key of Object.keys(data)) if (!['schemaVersion', 'entries'].includes(key)) errors.push(`Unknown manifest field: ${key}.`);
+  return errors;
+}
+
+export function load(root: string): Manifest {
+  const path = join(root, MANIFEST);
+  if (!existsSync(path)) throw new Error(`Missing ${MANIFEST}. Run citeskill init.`);
+  const data: unknown = JSON.parse(readFileSync(path, 'utf8'));
+  const errors = validate(data);
+  if (errors.length) throw new Error(errors.join('\n'));
+  return data as Manifest;
+}
+
+export function save(root: string, manifest: Manifest): void {
+  const errors = validate(manifest);
+  if (errors.length) throw new Error(errors.join('\n'));
+  mkdirSync(join(root, '.citeskill'), { recursive: true });
+  writeFileSync(join(root, MANIFEST), `${JSON.stringify(manifest, null, 2)}\n`);
+}
+
+export function init(root: string): void {
+  if (existsSync(join(root, MANIFEST))) throw new Error(`${MANIFEST} already exists.`);
+  save(root, { schemaVersion: 1, entries: [] });
+}
+
+export type Summary = { model: Record<string, number>; provider: Record<string, number>; agent: Record<string, number>; workUnits: number };
+export function summarize(manifest: Manifest): Summary {
+  const groups = new Map<string, Entry[]>();
+  for (const e of manifest.entries) if (e.estimatedShare !== undefined) {
+    const key = refKey(e);
+    groups.set(key, [...(groups.get(key) ?? []), e]);
+  }
+  const result: Summary = { model: {}, provider: {}, agent: {}, workUnits: groups.size };
+  if (!groups.size) return result;
+  for (const entries of groups.values()) for (const e of entries) {
+    const contribution = e.estimatedShare! / groups.size;
+    if (e.kind === 'agent') result.agent[e.name] = (result.agent[e.name] ?? 0) + contribution;
+    if (e.kind === 'model') {
+      const name = e.model ?? e.name;
+      result.model[name] = (result.model[name] ?? 0) + contribution;
+      if (e.provider) result.provider[e.provider] = (result.provider[e.provider] ?? 0) + contribution;
+    }
+  }
+  return result;
+}
+
+export function parseTrailer(message: string): string[] {
+  const lines = message.trimEnd().split(/\r?\n/);
+  const trailer = [...lines].reverse().find(line => /^CiteSkill-Refs:\s*/i.test(line));
+  return trailer ? trailer.replace(/^CiteSkill-Refs:\s*/i, '').split(',').map(x => x.trim()).filter(Boolean) : [];
+}
+
+export function render(manifest: Manifest): string {
+  const summary = summarize(manifest);
+  const pct = (n: number) => `${Number(n.toFixed(1))}%`;
+  const sorted = (r: Record<string, number>) => Object.entries(r).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k}: ${pct(v)}`).join(', ') || 'Not declared';
+  const lines = ['<!-- citeskill:start -->', '## Agentic citations', '', '![CiteSkill](https://img.shields.io/badge/attribution-CiteSkill-blue)', '', 'Contribution shares below are user-declared estimates averaged across cited commits and PRs. They are not measured authorship.', '', `**Models:** ${sorted(summary.model)}`, '', `**Providers:** ${sorted(summary.provider)}`, '', `**Agents:** ${sorted(summary.agent)}`, '', '| Kind | Source | Work |', '| --- | --- | --- |'];
+  const clean = (s: string) => s.replace(/[|\r\n<>\[\]]/g, ' ').trim();
+  for (const e of manifest.entries) {
+    const label = clean(e.name);
+    const source = e.url ? `[${label}](${e.url.replace(/\(/g, '%28').replace(/\)/g, '%29')})` : label;
+    lines.push(`| ${e.kind} | ${source} | ${e.ref.type} ${clean(e.ref.value)} |`);
+  }
+  lines.push('', '<!-- citeskill:end -->');
+  return lines.join('\n');
+}

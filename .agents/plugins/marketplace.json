@@ -1,0 +1,12 @@
+{
+  "name": "citeskill",
+  "interface": { "displayName": "CiteSkill" },
+  "plugins": [
+    {
+      "name": "citeskill",
+      "source": { "source": "local", "path": "./plugins/citeskill" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Developer Tools"
+    }
+  ]
+}

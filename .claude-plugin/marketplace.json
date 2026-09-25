@@ -1,0 +1,18 @@
+{
+  "name": "citeskill",
+  "owner": {
+    "name": "woulgar"
+  },
+  "metadata": {
+    "description": "Marketplace for the CiteSkill Claude Code plugin."
+  },
+  "plugins": [
+    {
+      "name": "citeskill",
+      "source": "./claude-plugin",
+      "description": "Record direct agentic-source citations and link them to commits via the CiteSkill CLI.",
+      "version": "0.1.0",
+      "category": "productivity"
+    }
+  ]
+}

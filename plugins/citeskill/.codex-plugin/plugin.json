@@ -1,0 +1,18 @@
+{
+  "name": "citeskill",
+  "version": "0.1.0",
+  "description": "Record transparent citations for agent-assisted repository work.",
+  "author": {
+    "name": "Volkan Kırdar"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "CiteSkill",
+    "shortDescription": "Cite agents, models, skills, and source projects.",
+    "longDescription": "Adds a guided workflow for recording direct agentic sources against commits and pull requests with user-declared contribution estimates.",
+    "developerName": "Volkan Kırdar",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Help me record the direct agentic sources used in this repository with CiteSkill."
+  }
+}
