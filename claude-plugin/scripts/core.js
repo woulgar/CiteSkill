@@ -117,7 +117,7 @@ export function render(manifest) {
     const summary = summarize(manifest);
     const pct = (n) => `${Number(n.toFixed(1))}%`;
     const sorted = (r) => Object.entries(r).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k}: ${pct(v)}`).join(', ') || 'Not declared';
-    const lines = ['<!-- citeskill:start -->', '## Agentic citations', '', '![CiteSkill](https://img.shields.io/badge/attribution-CiteSkill-blue)', '', 'Contribution shares below are user-declared estimates averaged across cited commits and PRs. They are not measured authorship.', '', `**Models:** ${sorted(summary.model)}`, '', `**Providers:** ${sorted(summary.provider)}`, '', `**Agents:** ${sorted(summary.agent)}`, '', '| Kind | Source | Work |', '| --- | --- | --- |'];
+    const lines = ['<!-- citeskill:start -->', '## Agentic citations', '', '![CiteSkill](https://img.shields.io/badge/attribution-CiteSkill-blue)', '', 'Contribution shares below are user-declared estimates averaged across cited commits and PRs. They are not measured authorship.', '', `**Estimated model shares:** ${sorted(summary.model)}`, '', `**Estimated provider shares:** ${sorted(summary.provider)}`, '', `**Estimated agent shares:** ${sorted(summary.agent)}`, '', '| Kind | Source | Work |', '| --- | --- | --- |'];
     const clean = (s) => s.replace(/[|\r\n<>\[\]]/g, ' ').trim();
     for (const e of manifest.entries) {
         const label = clean(e.name);

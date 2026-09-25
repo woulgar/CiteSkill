@@ -49,6 +49,26 @@
         "value": "bd3293004dea3423e9a899e1140b701a76916bbc"
       },
       "provider": "OpenAI"
+    },
+    {
+      "id": "gpt-sol-build-1",
+      "kind": "model",
+      "name": "GPT Sol",
+      "ref": {
+        "type": "commit",
+        "value": "b3b8902022180a9be858c5eb5f998ff1dbf0e3f4"
+      },
+      "provider": "OpenAI"
+    },
+    {
+      "id": "gpt-sol-release-1",
+      "kind": "model",
+      "name": "GPT Sol",
+      "ref": {
+        "type": "commit",
+        "value": "bd3293004dea3423e9a899e1140b701a76916bbc"
+      },
+      "provider": "OpenAI"
     }
   ]
 }

@@ -1,5 +1,7 @@
 # CiteSkill
 
+Created by Volkan Kırdar. Built with Codex (GPT Sol) and Claude Opus 5.5; direct contributions are listed in the citations below.
+
 CiteSkill records the agents, models, skills, plugins, apps, MCP servers, and source projects used directly in a repository. Its citations live beside the code and can be linked to Git commits or pull requests. Contribution percentages are **user-declared estimates**, not measured authorship.
 
 ## Install and use
@@ -50,11 +52,11 @@ Support development through [GitHub Sponsors](https://github.com/sponsors/woulga
 
 Contribution shares below are user-declared estimates averaged across cited commits and PRs. They are not measured authorship.
 
-**Models:** Not declared
+**Estimated model shares:** Not declared
 
-**Providers:** Not declared
+**Estimated provider shares:** Not declared
 
-**Agents:** Not declared
+**Estimated agent shares:** Not declared
 
 | Kind | Source | Work |
 | --- | --- | --- |
@@ -63,5 +65,7 @@ Contribution shares below are user-declared estimates averaged across cited comm
 | skill | plugin-creator | commit b3b8902022180a9be858c5eb5f998ff1dbf0e3f4 |
 | skill | skill-creator | commit b3b8902022180a9be858c5eb5f998ff1dbf0e3f4 |
 | agent | Codex | commit bd3293004dea3423e9a899e1140b701a76916bbc |
+| model | GPT Sol | commit b3b8902022180a9be858c5eb5f998ff1dbf0e3f4 |
+| model | GPT Sol | commit bd3293004dea3423e9a899e1140b701a76916bbc |
 
 <!-- citeskill:end -->
