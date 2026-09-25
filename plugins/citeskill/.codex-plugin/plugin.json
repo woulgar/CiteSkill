@@ -1,7 +1,7 @@
 {
   "name": "citeskill",
   "version": "0.1.0",
-  "description": "Record transparent citations for agent-assisted repository work.",
+  "description": "Cite directly used agents, models, skills, plugins, apps, MCP servers, and projects in Git work.",
   "author": {
     "name": "Volkan Kırdar"
   },
@@ -9,7 +9,7 @@
   "interface": {
     "displayName": "CiteSkill",
     "shortDescription": "Cite AI sources in Git",
-    "longDescription": "Adds a guided workflow for recording direct agentic sources against commits and pull requests with user-declared contribution estimates.",
+    "longDescription": "Records direct agent, model, skill, plugin, app, MCP server, and project citations against commits and pull requests. Agent and model shares are optional user estimates; provider shares are derived from model estimates. Other sources are cited without percentages.",
     "developerName": "Volkan Kırdar",
     "category": "Productivity",
     "capabilities": [],

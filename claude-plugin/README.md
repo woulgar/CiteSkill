@@ -5,6 +5,10 @@ skills, plugins, apps, MCP servers, source projects) in
 `.citeskill/citations.json`, render them into `README.md`, and link them to commits
 with a `CiteSkill-Refs:` git trailer, using the `citeskill` CLI.
 
+Agent and model percentages are optional user-declared estimates. Provider
+percentages derive from model estimates. Skills, plugins, apps, MCP servers,
+and projects are cited without percentages.
+
 ## Contents
 
 | Path | Purpose |

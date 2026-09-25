@@ -2,7 +2,7 @@
   "name": "citeskill",
   "displayName": "CiteSkill",
   "version": "0.1.0",
-  "description": "Record direct agentic-source citations (models, agents, tools, skills, MCP servers) in .citeskill/citations.json and link them to commits via the CiteSkill CLI.",
+  "description": "Cite directly used agents, models, skills, plugins, apps, MCP servers, and projects in .citeskill/citations.json and link them to Git work.",
   "author": {
     "name": "Volkan Kirdar"
   },
