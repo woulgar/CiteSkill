@@ -1,0 +1,22 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "citeskill",
+  "version": "0.1.0",
+  "description": "Cite directly used agents, models, skills, plugins, apps, MCP servers, and projects in Git work.",
+  "author": {
+    "name": "Volkan Kırdar"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "CiteSkill",
+        "shortDescription": "Cite AI sources in Git",
+        "longDescription": "Records direct agent, model, skill, plugin, app, MCP server, and project citations against commits and pull requests. Agent and model shares are optional user estimates; provider shares are derived from model estimates. Other sources are cited without percentages.",
+        "developerName": "Volkan Kırdar",
+        "category": "Productivity",
+        "capabilities": [],
+        "defaultPrompt": "Help me record the direct agentic sources used in this repository with CiteSkill."
+      }
+    }
+  }
+}

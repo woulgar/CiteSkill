@@ -1,6 +1,6 @@
 # OpenAI Plugin Submission Materials
 
-Submit the `plugins/citeskill` folder as a skills-only plugin through the OpenAI plugin submission portal. This file contains copy-ready content for the listing and reviewer tests. The repository is public; use repository-hosted URLs where the portal requests them. The submission remains blocked while this account's Create plugin menu offers only With MCP.
+Submit the `plugins/citeskill` folder as a skills-only plugin through the OpenAI plugin submission portal. It includes the portable root `plugin.json` and a legacy `.codex-plugin/plugin.json` compatibility manifest. This file contains copy-ready content for the listing and reviewer tests. The repository is public; use repository-hosted URLs where the portal requests them. The public submission remains blocked while this account's Create plugin menu offers only With MCP. A private Plugin Creator upload does not submit the plugin to the public directory.
 
 ## Listing
 
