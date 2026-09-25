@@ -33,6 +33,10 @@ The README section and badge are generated from this record. GitHub's native Con
 
 The Codex plugin is in [`plugins/citeskill`](plugins/citeskill). The Claude integration is in [`claude-plugin`](claude-plugin). Both guide the same CLI workflow; the manifest is the shared contract.
 
+To install the Codex marketplace from GitHub, run `codex plugin marketplace add woulgar/CiteSkill`, then open the Plugins Directory in the ChatGPT desktop app, choose the CiteSkill marketplace, and install CiteSkill. The CLI bundled in the plugin requires Node.js 20+ on the machine where it runs.
+
+The Claude plugin package is available in this repository; its community marketplace submission follows the Codex directory submission. See [Claude integration guidance](CLAUDE_INTEGRATION.md).
+
 ## Attribution convention and license
 
 When CiteSkill helps document a project, consider keeping the generated citations visible and crediting the direct sources you used. Teams can require this through their own repository policies and CI. CiteSkill itself is MIT licensed; use of this tool or a cited skill does not automatically impose a new legal obligation on downstream projects.
