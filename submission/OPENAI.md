@@ -1,18 +1,15 @@
 # OpenAI Plugin Submission Materials
 
-Submit the `plugins/citeskill` folder as a skills-only plugin through the OpenAI plugin submission portal. This file contains copy-ready content for the listing and reviewer tests. The repository must be public before using its links.
+Submit the `plugins/citeskill` folder as a skills-only plugin through the OpenAI plugin submission portal. This file contains copy-ready content for the listing and reviewer tests. The repository remains private until both Codex and Claude listings are live; omit repository-hosted URLs from the skills-only draft until they are publicly reachable. Official submission checks allow URLs to be omitted for ZIP-based skills-only uploads.
 
 ## Listing
 
 - Name: CiteSkill
 - Category: Developer Tools
 - Publisher: Volkan Kırdar (select the verified individual identity in the portal)
-- Short description: Cite agents, models, skills, and source projects in Git repositories.
+- Short description: Cite AI sources in Git
 - Long description: CiteSkill helps developers record the direct agentic sources used in a commit or pull request. Its local CLI keeps a versioned citation manifest, validates Git references and commit trailers, and generates a readable README attribution section. Optional contribution percentages are declared estimates, not measured authorship. No CiteSkill account or hosted server is required.
-- Website: https://github.com/woulgar/CiteSkill
-- Support: https://github.com/woulgar/CiteSkill/blob/main/SUPPORT.md
-- Privacy: https://github.com/woulgar/CiteSkill/blob/main/PRIVACY.md
-- Terms: https://github.com/woulgar/CiteSkill/blob/main/TERMS.md
+- Website, support, privacy, terms: leave blank in the skills-only submission while the repository is private; populate with the repository URLs after both listings are live.
 - Logo: `assets/logo.png` (source: `assets/logo.svg`)
 - Availability: all regions offered by the portal where this English-language, local-only workflow can be supported.
 

@@ -26,6 +26,17 @@ test('renders a bounded README section and protects markdown table syntax', () =
   assert.match(result, /<!-- citeskill:end -->/);
 });
 
+test('rejects unsafe URLs and escapes citation labels in generated Markdown', () => {
+  const bad = structuredClone(sample);
+  bad.entries[2].url = 'javascript:alert(1)';
+  assert.match(validate(bad).join(' '), /HTTPS URL/);
+  bad.entries[2].url = 'https://example.com/x_(y)';
+  bad.entries[2].name = 'Useful | [plugin]';
+  const result = render(bad);
+  assert.match(result, /Useful\s+plugin/);
+  assert.match(result, /x_%28y%29/);
+});
+
 test('parses commit trailer IDs', () => {
   assert.deepEqual(parseTrailer('Implement feature\n\nCiteSkill-Refs: astra-1, plugin-1\n'), ['astra-1', 'plugin-1']);
 });

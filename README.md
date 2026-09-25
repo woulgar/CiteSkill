@@ -33,7 +33,7 @@ The README section and badge are generated from this record. GitHub's native Con
 
 The Codex plugin is in [`plugins/citeskill`](plugins/citeskill). The Claude integration is in [`claude-plugin`](claude-plugin). Both guide the same CLI workflow; the manifest is the shared contract.
 
-To install the Codex marketplace from GitHub, run `codex plugin marketplace add woulgar/CiteSkill`, then open the Plugins Directory in the ChatGPT desktop app, choose the CiteSkill marketplace, and install CiteSkill. The CLI bundled in the plugin requires Node.js 20+ on the machine where it runs.
+Invited beta testers with repository access can run `codex plugin marketplace add woulgar/CiteSkill`, then open the Plugins Directory in the ChatGPT desktop app, choose the CiteSkill marketplace, and install CiteSkill. The CLI bundled in the plugin requires Node.js 20+ on the machine where it runs. The GitHub repository will become public after both official marketplace listings are live.
 
 The Claude plugin package is available in this repository; its community marketplace submission follows the Codex directory submission. See [Claude integration guidance](CLAUDE_INTEGRATION.md).
 

@@ -8,7 +8,7 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "CiteSkill",
-    "shortDescription": "Cite agents, models, skills, and source projects.",
+    "shortDescription": "Cite AI sources in Git",
     "longDescription": "Adds a guided workflow for recording direct agentic sources against commits and pull requests with user-declared contribution estimates.",
     "developerName": "Volkan Kırdar",
     "category": "Productivity",

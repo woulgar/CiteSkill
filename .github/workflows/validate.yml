@@ -14,6 +14,7 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci
+      - run: npm audit --audit-level=high
       - run: npm test
       - run: git diff --exit-code -- plugins/citeskill/scripts claude-plugin/scripts
       - run: node dist/cli.js validate --trailers
