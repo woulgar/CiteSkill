@@ -2,7 +2,7 @@
 
 Created by Volkan Kırdar. Built with Codex (GPT Sol) and Claude Opus 5.5; direct contributions are listed in the citations below.
 
-CiteSkill records the agents, models, skills, plugins, apps, MCP servers, and source projects used directly in a repository. Its citations live beside the code and can be linked to Git commits or pull requests. Contribution percentages are **user-declared estimates**, not measured authorship.
+CiteSkill records the agents, models, skills, plugins, apps, MCP servers, and source projects used directly in a repository. Its citations live beside the code and can be linked to Git commits or pull requests. Agent and model contribution percentages are **user-declared estimates**, not measured authorship; provider percentages are derived from model estimates. Skills, plugins, apps, MCP servers, and projects are cited without percentages.
 
 ## Install and use
 
