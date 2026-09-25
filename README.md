@@ -58,5 +58,6 @@ Contribution shares below are user-declared estimates averaged across cited comm
 | model | Claude-Opus-5.5 | commit b3b8902022180a9be858c5eb5f998ff1dbf0e3f4 |
 | skill | plugin-creator | commit b3b8902022180a9be858c5eb5f998ff1dbf0e3f4 |
 | skill | skill-creator | commit b3b8902022180a9be858c5eb5f998ff1dbf0e3f4 |
+| agent | Codex | commit bd3293004dea3423e9a899e1140b701a76916bbc |
 
 <!-- citeskill:end -->

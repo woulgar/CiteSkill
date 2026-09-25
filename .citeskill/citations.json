@@ -39,6 +39,16 @@
         "type": "commit",
         "value": "b3b8902022180a9be858c5eb5f998ff1dbf0e3f4"
       }
+    },
+    {
+      "id": "codex-release-1",
+      "kind": "agent",
+      "name": "Codex",
+      "ref": {
+        "type": "commit",
+        "value": "bd3293004dea3423e9a899e1140b701a76916bbc"
+      },
+      "provider": "OpenAI"
     }
   ]
 }
