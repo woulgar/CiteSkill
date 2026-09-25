@@ -77,5 +77,7 @@ Contribution shares below are user-declared estimates averaged across cited comm
 | skill | [Brag](https://github.com/latent-spaces/brag) | commit 5d180c8542fee221dee7c7e0a7fd44a28448b05e |
 | agent | Codex | commit 1e8d0b8d1b3b6eccc0d9ba97c8cd0af6233adb22 |
 | skill | plugin-creator | commit 1e8d0b8d1b3b6eccc0d9ba97c8cd0af6233adb22 |
+| agent | Codex | commit c26c18266d06d355b5b0555aa74dfd482e452637 |
+| plugin | Plugin Creator | commit c26c18266d06d355b5b0555aa74dfd482e452637 |
 
 <!-- citeskill:end -->

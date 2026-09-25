@@ -168,6 +168,25 @@
         "type": "commit",
         "value": "1e8d0b8d1b3b6eccc0d9ba97c8cd0af6233adb22"
       }
+    },
+    {
+      "id": "codex-plugin-upload-1",
+      "kind": "agent",
+      "name": "Codex",
+      "ref": {
+        "type": "commit",
+        "value": "c26c18266d06d355b5b0555aa74dfd482e452637"
+      },
+      "provider": "OpenAI"
+    },
+    {
+      "id": "plugin-creator-upload-1",
+      "kind": "plugin",
+      "name": "Plugin Creator",
+      "ref": {
+        "type": "commit",
+        "value": "c26c18266d06d355b5b0555aa74dfd482e452637"
+      }
     }
   ]
 }
