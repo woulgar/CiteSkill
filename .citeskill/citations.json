@@ -149,6 +149,25 @@
         "value": "5d180c8542fee221dee7c7e0a7fd44a28448b05e"
       },
       "url": "https://github.com/latent-spaces/brag"
+    },
+    {
+      "id": "codex-plugin-review-1",
+      "kind": "agent",
+      "name": "Codex",
+      "ref": {
+        "type": "commit",
+        "value": "1e8d0b8d1b3b6eccc0d9ba97c8cd0af6233adb22"
+      },
+      "provider": "OpenAI"
+    },
+    {
+      "id": "plugin-creator-review-1",
+      "kind": "skill",
+      "name": "plugin-creator",
+      "ref": {
+        "type": "commit",
+        "value": "1e8d0b8d1b3b6eccc0d9ba97c8cd0af6233adb22"
+      }
     }
   ]
 }

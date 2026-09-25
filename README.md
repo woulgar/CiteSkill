@@ -75,5 +75,7 @@ Contribution shares below are user-declared estimates averaged across cited comm
 | project | [Hyperframes](https://github.com/heygen-com/hyperframes) | commit 5d180c8542fee221dee7c7e0a7fd44a28448b05e |
 | skill | [Hyperframes](https://github.com/heygen-com/hyperframes) | commit 5d180c8542fee221dee7c7e0a7fd44a28448b05e |
 | skill | [Brag](https://github.com/latent-spaces/brag) | commit 5d180c8542fee221dee7c7e0a7fd44a28448b05e |
+| agent | Codex | commit 1e8d0b8d1b3b6eccc0d9ba97c8cd0af6233adb22 |
+| skill | plugin-creator | commit 1e8d0b8d1b3b6eccc0d9ba97c8cd0af6233adb22 |
 
 <!-- citeskill:end -->
