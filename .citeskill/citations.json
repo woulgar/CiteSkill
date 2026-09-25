@@ -109,6 +109,46 @@
         "value": "7848d9629ea45fbb6fb595ae65b329541093b67c"
       },
       "provider": "OpenAI"
+    },
+    {
+      "id": "codex-video-revision-1",
+      "kind": "agent",
+      "name": "Codex",
+      "ref": {
+        "type": "commit",
+        "value": "5d180c8542fee221dee7c7e0a7fd44a28448b05e"
+      },
+      "provider": "OpenAI"
+    },
+    {
+      "id": "hyperframes-video-revision-1",
+      "kind": "project",
+      "name": "Hyperframes",
+      "ref": {
+        "type": "commit",
+        "value": "5d180c8542fee221dee7c7e0a7fd44a28448b05e"
+      },
+      "url": "https://github.com/heygen-com/hyperframes"
+    },
+    {
+      "id": "hyperframes-skill-video-revision-1",
+      "kind": "skill",
+      "name": "Hyperframes",
+      "ref": {
+        "type": "commit",
+        "value": "5d180c8542fee221dee7c7e0a7fd44a28448b05e"
+      },
+      "url": "https://github.com/heygen-com/hyperframes"
+    },
+    {
+      "id": "brag-video-revision-1",
+      "kind": "skill",
+      "name": "Brag",
+      "ref": {
+        "type": "commit",
+        "value": "5d180c8542fee221dee7c7e0a7fd44a28448b05e"
+      },
+      "url": "https://github.com/latent-spaces/brag"
     }
   ]
 }

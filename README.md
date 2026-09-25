@@ -71,5 +71,9 @@ Contribution shares below are user-declared estimates averaged across cited comm
 | project | [Hyperframes](https://github.com/heygen-com/hyperframes) | commit 7848d9629ea45fbb6fb595ae65b329541093b67c |
 | agent | Codex | commit 7848d9629ea45fbb6fb595ae65b329541093b67c |
 | model | GPT Sol | commit 7848d9629ea45fbb6fb595ae65b329541093b67c |
+| agent | Codex | commit 5d180c8542fee221dee7c7e0a7fd44a28448b05e |
+| project | [Hyperframes](https://github.com/heygen-com/hyperframes) | commit 5d180c8542fee221dee7c7e0a7fd44a28448b05e |
+| skill | [Hyperframes](https://github.com/heygen-com/hyperframes) | commit 5d180c8542fee221dee7c7e0a7fd44a28448b05e |
+| skill | [Brag](https://github.com/latent-spaces/brag) | commit 5d180c8542fee221dee7c7e0a7fd44a28448b05e |
 
 <!-- citeskill:end -->
