@@ -38,3 +38,25 @@ The Codex plugin is in [`plugins/citeskill`](plugins/citeskill). The Claude inte
 When CiteSkill helps document a project, consider keeping the generated citations visible and crediting the direct sources you used. Teams can require this through their own repository policies and CI. CiteSkill itself is MIT licensed; use of this tool or a cited skill does not automatically impose a new legal obligation on downstream projects.
 
 Support development through [GitHub Sponsors](https://github.com/sponsors/woulgar) or [Buy Me a Coffee](https://www.buymeacoffee.com/woulgar).
+
+<!-- citeskill:start -->
+## Agentic citations
+
+![CiteSkill](https://img.shields.io/badge/attribution-CiteSkill-blue)
+
+Contribution shares below are user-declared estimates averaged across cited commits and PRs. They are not measured authorship.
+
+**Models:** Not declared
+
+**Providers:** Not declared
+
+**Agents:** Not declared
+
+| Kind | Source | Work |
+| --- | --- | --- |
+| agent | Codex | commit b3b8902022180a9be858c5eb5f998ff1dbf0e3f4 |
+| model | Claude-Opus-5.5 | commit b3b8902022180a9be858c5eb5f998ff1dbf0e3f4 |
+| skill | plugin-creator | commit b3b8902022180a9be858c5eb5f998ff1dbf0e3f4 |
+| skill | skill-creator | commit b3b8902022180a9be858c5eb5f998ff1dbf0e3f4 |
+
+<!-- citeskill:end -->
