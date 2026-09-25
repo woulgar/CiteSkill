@@ -6,7 +6,7 @@ CiteSkill records the agents, models, skills, plugins, apps, MCP servers, and so
 
 ## Install and use
 
-Requires Node.js 20 or later. The Codex and Claude plugins bundle the CLI at `scripts/cli.js`. For direct CLI use during the private beta, clone this repository and run `npm install && npm run build`; from the target project run `node <path-to-CiteSkill>/dist/cli.js` with the commands below. If `citeskill` is on your `PATH`, use the shorter form shown here.
+Requires Node.js 20 or later. The Codex and Claude plugins bundle the CLI at `scripts/cli.js`. For direct CLI use, clone this repository and run `npm install && npm run build`; from the target project run `node <path-to-CiteSkill>/dist/cli.js` with the commands below. If `citeskill` is on your `PATH`, use the shorter form shown here.
 
 ```sh
 citeskill init
@@ -35,9 +35,9 @@ The README section and badge are generated from this record. GitHub's native Con
 
 The Codex plugin is in [`plugins/citeskill`](plugins/citeskill). The Claude integration is in [`claude-plugin`](claude-plugin). Both guide the same CLI workflow; the manifest is the shared contract.
 
-Invited beta testers with repository access can run `codex plugin marketplace add woulgar/CiteSkill`, then open the Plugins Directory in the ChatGPT desktop app, choose the CiteSkill marketplace, and install CiteSkill. The CLI bundled in the plugin requires Node.js 20+ on the machine where it runs. The GitHub repository will become public after both official marketplace listings are live.
+To install the Codex beta, run `codex plugin marketplace add woulgar/CiteSkill`, then open the Plugins Directory in the ChatGPT desktop app, choose the CiteSkill marketplace, and install CiteSkill. The CLI bundled in the plugin requires Node.js 20+ on the machine where it runs. Official directory review is pending.
 
-The Claude plugin package is available in this repository; its community marketplace submission follows the Codex directory submission. See [Claude integration guidance](CLAUDE_INTEGRATION.md).
+The Claude plugin package is available in this repository; its directory submission is pending. See [Claude integration guidance](CLAUDE_INTEGRATION.md).
 
 ## Attribution convention and license
 
