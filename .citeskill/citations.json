@@ -69,6 +69,46 @@
         "value": "bd3293004dea3423e9a899e1140b701a76916bbc"
       },
       "provider": "OpenAI"
+    },
+    {
+      "id": "brag-video-1",
+      "kind": "skill",
+      "name": "Brag",
+      "ref": {
+        "type": "commit",
+        "value": "7848d9629ea45fbb6fb595ae65b329541093b67c"
+      },
+      "url": "https://github.com/latent-spaces/brag"
+    },
+    {
+      "id": "hyperframes-video-1",
+      "kind": "project",
+      "name": "Hyperframes",
+      "ref": {
+        "type": "commit",
+        "value": "7848d9629ea45fbb6fb595ae65b329541093b67c"
+      },
+      "url": "https://github.com/heygen-com/hyperframes"
+    },
+    {
+      "id": "codex-video-1",
+      "kind": "agent",
+      "name": "Codex",
+      "ref": {
+        "type": "commit",
+        "value": "7848d9629ea45fbb6fb595ae65b329541093b67c"
+      },
+      "provider": "OpenAI"
+    },
+    {
+      "id": "gpt-sol-video-1",
+      "kind": "model",
+      "name": "GPT Sol",
+      "ref": {
+        "type": "commit",
+        "value": "7848d9629ea45fbb6fb595ae65b329541093b67c"
+      },
+      "provider": "OpenAI"
     }
   ]
 }

@@ -67,5 +67,9 @@ Contribution shares below are user-declared estimates averaged across cited comm
 | agent | Codex | commit bd3293004dea3423e9a899e1140b701a76916bbc |
 | model | GPT Sol | commit b3b8902022180a9be858c5eb5f998ff1dbf0e3f4 |
 | model | GPT Sol | commit bd3293004dea3423e9a899e1140b701a76916bbc |
+| skill | [Brag](https://github.com/latent-spaces/brag) | commit 7848d9629ea45fbb6fb595ae65b329541093b67c |
+| project | [Hyperframes](https://github.com/heygen-com/hyperframes) | commit 7848d9629ea45fbb6fb595ae65b329541093b67c |
+| agent | Codex | commit 7848d9629ea45fbb6fb595ae65b329541093b67c |
+| model | GPT Sol | commit 7848d9629ea45fbb6fb595ae65b329541093b67c |
 
 <!-- citeskill:end -->
