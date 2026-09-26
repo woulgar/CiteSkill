@@ -3,7 +3,17 @@ import { join } from 'node:path';
 export const MANIFEST = '.citeskill/citations.json';
 export const KINDS = ['agent', 'model', 'skill', 'plugin', 'app', 'mcp', 'project'];
 const isObject = (x) => typeof x === 'object' && x !== null && !Array.isArray(x);
-const isSafeUrl = (x) => typeof x === 'string' && /^https:\/\/[^\s]+$/i.test(x);
+const isSafeUrl = (x) => {
+    if (typeof x !== 'string' || /[\s\\]/.test(x))
+        return false;
+    try {
+        const url = new URL(x);
+        return url.protocol === 'https:' && Boolean(url.hostname) && !url.username && !url.password;
+    }
+    catch {
+        return false;
+    }
+};
 const refKey = (e) => `${e.ref.type}:${e.ref.value}`;
 export function validate(data) {
     const errors = [];
@@ -31,8 +41,12 @@ export function validate(data) {
             errors.push(`${p}.ref must contain a commit or PR and a value.`);
         else if (raw.ref.type === 'commit' && !/^[0-9a-f]{7,40}$/i.test(raw.ref.value))
             errors.push(`${p}.ref.value must be a Git commit SHA.`);
-        else if (raw.ref.type === 'pr' && !/^\d+$/.test(raw.ref.value))
-            errors.push(`${p}.ref.value must be a PR number.`);
+        else if (raw.ref.type === 'pr' && !/^[1-9]\d*$/.test(raw.ref.value))
+            errors.push(`${p}.ref.value must be a positive PR number.`);
+        if (isObject(raw.ref))
+            for (const key of Object.keys(raw.ref))
+                if (!['type', 'value'].includes(key))
+                    errors.push(`${p}.ref.${key} is not part of schema v1.`);
         for (const key of ['url', 'evidenceUrl'])
             if (raw[key] !== undefined && !isSafeUrl(raw[key]))
                 errors.push(`${p}.${key} must be an HTTPS URL.`);
@@ -94,9 +108,11 @@ export function summarize(manifest) {
     const result = { model: Object.create(null), provider: Object.create(null), agent: Object.create(null), workUnits: groups.size };
     if (!groups.size)
         return result;
+    const modelUnits = [...groups.values()].filter(entries => entries.some(e => e.kind === 'model')).length;
+    const agentUnits = [...groups.values()].filter(entries => entries.some(e => e.kind === 'agent')).length;
     for (const entries of groups.values())
         for (const e of entries) {
-            const contribution = e.estimatedShare / groups.size;
+            const contribution = e.estimatedShare / (e.kind === 'agent' ? agentUnits : modelUnits);
             if (e.kind === 'agent')
                 result.agent[e.name] = (result.agent[e.name] ?? 0) + contribution;
             if (e.kind === 'model') {

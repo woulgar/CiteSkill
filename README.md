@@ -27,7 +27,7 @@ The cited work commit can precede the citation record. Put the citation in a fol
 
 ## Format and percentages
 
-The canonical record is `.citeskill/citations.json`, currently `schemaVersion: 1`. Each entry has a unique ID, source kind, name, and commit SHA or PR number. Optional fields include a canonical HTTPS URL, provider, model, estimated share, and safe evidence URL. The CLI validates required fields, ranges, source kinds, and per-work-unit share totals. Model, provider, and agent totals are displayed separately. Each referenced commit or PR with declared shares counts as one work unit in the project average; unallocated share remains unknown.
+The canonical record is `.citeskill/citations.json`, currently `schemaVersion: 1`. Each entry has a unique ID, source kind, name, and commit SHA or PR number. Optional fields include a canonical HTTPS URL, provider, model, estimated share, and safe evidence URL. The CLI validates required fields, ranges, source kinds, and per-work-unit share totals. Model, provider, and agent totals are displayed separately. Agent averages use work units with declared agent estimates. Model and provider averages use work units with declared model estimates. Missing estimates do not count as zero; unallocated share remains unknown. URLs must use HTTPS and cannot contain embedded credentials.
 
 The README section and badge are generated from this record. GitHub's native Contributors panel is unaffected. CiteSkill records direct usage only: a downstream project cites a source project, without copying that project's own citations. No prompt or transcript is required or stored.
 
@@ -35,7 +35,7 @@ The README section and badge are generated from this record. GitHub's native Con
 
 The Codex plugin is in [`plugins/citeskill`](plugins/citeskill). The Claude integration is in [`claude-plugin`](claude-plugin). Both guide the same CLI workflow; the manifest is the shared contract.
 
-To install the Codex beta, run `codex plugin marketplace add woulgar/CiteSkill`, then open the Plugins Directory in the ChatGPT desktop app, choose the CiteSkill marketplace, and install CiteSkill. The CLI bundled in the plugin requires Node.js 20+ on the machine where it runs. Official directory review is pending.
+To install the Codex beta, run `codex plugin marketplace add woulgar/CiteSkill`, then open the Plugins Directory in the ChatGPT desktop app, choose the CiteSkill marketplace, and install CiteSkill. The CLI bundled in the plugin requires Node.js 20+ on the machine where it runs. Public OpenAI directory submission is blocked while the submission portal does not offer Skills only. A private Plugin Creator upload is available to its owner.
 
 The Claude plugin package is available in this repository; its directory submission is pending. See [Claude integration guidance](CLAUDE_INTEGRATION.md).
 
