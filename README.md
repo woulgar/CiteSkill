@@ -79,5 +79,7 @@ Contribution shares below are user-declared estimates averaged across cited comm
 | skill | plugin-creator | commit 1e8d0b8d1b3b6eccc0d9ba97c8cd0af6233adb22 |
 | agent | Codex | commit c26c18266d06d355b5b0555aa74dfd482e452637 |
 | plugin | Plugin Creator | commit c26c18266d06d355b5b0555aa74dfd482e452637 |
+| agent | Codex | commit 308e058ffbb63e410a25f0cdff02c3b596ff6d0f |
+| skill | [cite-work](https://github.com/woulgar/CiteSkill) | commit 308e058ffbb63e410a25f0cdff02c3b596ff6d0f |
 
 <!-- citeskill:end -->

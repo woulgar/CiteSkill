@@ -187,6 +187,26 @@
         "type": "commit",
         "value": "c26c18266d06d355b5b0555aa74dfd482e452637"
       }
+    },
+    {
+      "id": "codex-hardening-1",
+      "kind": "agent",
+      "name": "Codex",
+      "ref": {
+        "type": "commit",
+        "value": "308e058ffbb63e410a25f0cdff02c3b596ff6d0f"
+      },
+      "provider": "OpenAI"
+    },
+    {
+      "id": "citeskill-hardening-1",
+      "kind": "skill",
+      "name": "cite-work",
+      "ref": {
+        "type": "commit",
+        "value": "308e058ffbb63e410a25f0cdff02c3b596ff6d0f"
+      },
+      "url": "https://github.com/woulgar/CiteSkill"
     }
   ]
 }
