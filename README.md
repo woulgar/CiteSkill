@@ -4,6 +4,10 @@ Created by Volkan Kırdar. Built with Codex (GPT Sol) and Claude Opus 5.5; direc
 
 CiteSkill records the agents, models, skills, plugins, apps, MCP servers, and source projects used directly in a repository. Its citations live beside the code and can be linked to Git commits or pull requests. Agent and model contribution percentages are **user-declared estimates**, not measured authorship; provider percentages are derived from model estimates. Skills, plugins, apps, MCP servers, and projects are cited without percentages.
 
+## Coming soon to ChatGPT and Codex
+
+We are preparing CiteSkill for the public Plugins Directory in ChatGPT and Codex. A submission portal issue is currently delaying the release, and we are working with OpenAI Support to resolve it. Once the issue is resolved, we will complete submission and publish after approval. No launch date is confirmed yet. You can already try the plugin from this repository using the installation instructions below.
+
 ## Install and use
 
 Requires Node.js 20 or later. The Codex and Claude plugins bundle the CLI at `scripts/cli.js`. For direct CLI use, clone this repository and run `npm install && npm run build`; from the target project run `node <path-to-CiteSkill>/dist/cli.js` with the commands below. If `citeskill` is on your `PATH`, use the shorter form shown here.
@@ -35,7 +39,7 @@ The README section and badge are generated from this record. GitHub's native Con
 
 The Codex plugin is in [`plugins/citeskill`](plugins/citeskill). The Claude integration is in [`claude-plugin`](claude-plugin). Both guide the same CLI workflow; the manifest is the shared contract.
 
-To install the Codex beta, run `codex plugin marketplace add woulgar/CiteSkill`, then open the Plugins Directory in the ChatGPT desktop app, choose the CiteSkill marketplace, and install CiteSkill. The CLI bundled in the plugin requires Node.js 20+ on the machine where it runs. Official directory review is pending.
+To install the Codex beta, run `codex plugin marketplace add woulgar/CiteSkill`, then open the Plugins Directory in the ChatGPT desktop app, choose the CiteSkill marketplace, and install CiteSkill. The CLI bundled in the plugin requires Node.js 20+ on the machine where it runs. Public directory submission is awaiting resolution of the portal issue described above.
 
 The Claude plugin package is available in this repository; its directory submission is pending. See [Claude integration guidance](CLAUDE_INTEGRATION.md).
 
