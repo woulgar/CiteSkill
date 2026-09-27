@@ -57,3 +57,26 @@ test('rejects unsafe URLs and escapes citation labels in generated Markdown', ()
 test('parses commit trailer IDs', () => {
   assert.deepEqual(parseTrailer('Implement feature\n\nCiteSkill-Refs: astra-1, plugin-1\n'), ['astra-1', 'plugin-1']);
 });
+
+test('averages agent and model estimates over their independently declared work units', () => {
+  const manifest = structuredClone(sample);
+  manifest.entries.push({ id: 'agent-1', kind: 'agent', name: 'Codex', estimatedShare: 80, ref: { type: 'commit', value: '1234567' } });
+  const summary = summarize(manifest);
+  assert.equal(summary.model.Astra, 40);
+  assert.equal(summary.provider.OpenAI, 40);
+  assert.equal(summary.agent.Codex, 80);
+  assert.equal(summary.workUnits, 2);
+});
+
+test('rejects malformed URLs, embedded credentials, and undeclared reference data', () => {
+  for (const url of ['https://', 'https://user:password@example.com', 'https://example.com\\path']) {
+    const manifest = structuredClone(sample);
+    manifest.entries[2].url = url;
+    assert.match(validate(manifest).join(' '), /HTTPS URL/);
+  }
+  const malformed = structuredClone(sample) as any;
+  malformed.entries[0].ref.transcript = 'Private conversation';
+  assert.match(validate(malformed).join(' '), /ref.transcript/);
+  malformed.entries[0].ref = { type: 'pr', value: '0' };
+  assert.match(validate(malformed).join(' '), /positive PR/);
+});

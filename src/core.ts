@@ -19,7 +19,13 @@ export type Entry = {
 export type Manifest = { schemaVersion: 1; entries: Entry[] };
 
 const isObject = (x: unknown): x is Record<string, unknown> => typeof x === 'object' && x !== null && !Array.isArray(x);
-const isSafeUrl = (x: unknown): x is string => typeof x === 'string' && /^https:\/\/[^\s]+$/i.test(x);
+const isSafeUrl = (x: unknown): x is string => {
+  if (typeof x !== 'string' || /[\s\\]/.test(x)) return false;
+  try {
+    const url = new URL(x);
+    return url.protocol === 'https:' && Boolean(url.hostname) && !url.username && !url.password;
+  } catch { return false; }
+};
 const refKey = (e: Entry) => `${e.ref.type}:${e.ref.value}`;
 
 export function validate(data: unknown): string[] {
@@ -37,7 +43,8 @@ export function validate(data: unknown): string[] {
     if (typeof raw.name !== 'string' || !raw.name.trim() || /[\r\n]/.test(raw.name)) errors.push(`${p}.name must be a nonempty single line.`);
     if (!isObject(raw.ref) || !['commit', 'pr'].includes(String(raw.ref.type)) || typeof raw.ref.value !== 'string' || !raw.ref.value.trim()) errors.push(`${p}.ref must contain a commit or PR and a value.`);
     else if (raw.ref.type === 'commit' && !/^[0-9a-f]{7,40}$/i.test(raw.ref.value)) errors.push(`${p}.ref.value must be a Git commit SHA.`);
-    else if (raw.ref.type === 'pr' && !/^\d+$/.test(raw.ref.value)) errors.push(`${p}.ref.value must be a PR number.`);
+    else if (raw.ref.type === 'pr' && !/^[1-9]\d*$/.test(raw.ref.value)) errors.push(`${p}.ref.value must be a positive PR number.`);
+    if (isObject(raw.ref)) for (const key of Object.keys(raw.ref)) if (!['type', 'value'].includes(key)) errors.push(`${p}.ref.${key} is not part of schema v1.`);
     for (const key of ['url', 'evidenceUrl'] as const) if (raw[key] !== undefined && !isSafeUrl(raw[key])) errors.push(`${p}.${key} must be an HTTPS URL.`);
     for (const key of ['provider', 'model'] as const) if (raw[key] !== undefined && (typeof raw[key] !== 'string' || !raw[key].trim() || /[\r\n]/.test(raw[key]))) errors.push(`${p}.${key} must be a nonempty single line.`);
     if (raw.estimatedShare !== undefined) {
@@ -86,8 +93,10 @@ export function summarize(manifest: Manifest): Summary {
   }
   const result: Summary = { model: Object.create(null), provider: Object.create(null), agent: Object.create(null), workUnits: groups.size };
   if (!groups.size) return result;
+  const modelUnits = [...groups.values()].filter(entries => entries.some(e => e.kind === 'model')).length;
+  const agentUnits = [...groups.values()].filter(entries => entries.some(e => e.kind === 'agent')).length;
   for (const entries of groups.values()) for (const e of entries) {
-    const contribution = e.estimatedShare! / groups.size;
+    const contribution = e.estimatedShare! / (e.kind === 'agent' ? agentUnits : modelUnits);
     if (e.kind === 'agent') result.agent[e.name] = (result.agent[e.name] ?? 0) + contribution;
     if (e.kind === 'model') {
       const name = e.model ?? e.name;
