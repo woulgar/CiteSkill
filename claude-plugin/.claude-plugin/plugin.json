@@ -1,7 +1,7 @@
 {
   "name": "citeskill",
   "displayName": "CiteSkill",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Cite directly used agents, models, skills, plugins, apps, MCP servers, and projects in .citeskill/citations.json and link them to Git work.",
   "author": {
     "name": "Volkan Kirdar"

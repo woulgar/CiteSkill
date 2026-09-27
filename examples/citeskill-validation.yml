@@ -1,0 +1,24 @@
+name: Validate attribution
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  citations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          path: project
+      - uses: actions/checkout@v4
+        with:
+          repository: woulgar/CiteSkill
+          ref: v0.1.1
+          path: citeskill-tool
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci && npm run build
+        working-directory: citeskill-tool
+      - run: node ../citeskill-tool/dist/cli.js validate --trailers
+        working-directory: project

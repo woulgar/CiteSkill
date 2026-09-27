@@ -16,5 +16,5 @@ jobs:
       - run: npm ci
       - run: npm audit --audit-level=high
       - run: npm test
-      - run: git diff --exit-code -- plugins/citeskill/scripts claude-plugin/scripts
+      - run: git diff --exit-code -- plugins/citeskill/scripts claude-plugin/scripts plugins/citeskill/schema claude-plugin/schema
       - run: node dist/cli.js validate --trailers

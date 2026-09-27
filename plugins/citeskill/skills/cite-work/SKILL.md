@@ -15,3 +15,7 @@ The minimum entry is `{ "id": "lowercase-slug", "kind": "model", "name": "Source
 4. Run `citeskill validate --trailers` and `citeskill render --output README.md`. Review the diff before committing.
 
 Do not put prompts, conversation transcripts, secrets, or private links in citations. Cite a source project only when it was used directly; do not copy its own dependency citations.
+
+## Maintaining records (0.1.1)
+
+Use `update --id ID` with descriptive flags from `add` to correct records, or `--unset share,provider` to remove optional fields. IDs stay stable. `remove --id ID` refuses records referenced by current reachable history. `normalize` persists full commit SHAs. After squash/rebase, explicitly use `relink --ids ID,ID --ref-type commit --ref NEW_SHA` (or a PR reference), preserving trailer IDs in the replacement message. Do not infer rewritten mappings or estimates. Clear estimates before combining work units if their total would exceed 100%, then obtain revised declarations. Summary coverage counts cited work units with estimates; provider percentages use the model denominator. The plugin includes `schema/citations.schema.json`; Git and aggregate checks require the CLI.

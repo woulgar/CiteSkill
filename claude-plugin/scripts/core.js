@@ -105,7 +105,12 @@ export function summarize(manifest) {
             const key = refKey(e);
             groups.set(key, [...(groups.get(key) ?? []), e]);
         }
-    const result = { model: Object.create(null), provider: Object.create(null), agent: Object.create(null), workUnits: groups.size };
+    const result = { model: Object.create(null), provider: Object.create(null), agent: Object.create(null), workUnits: groups.size, coverage: {
+            total: new Set(manifest.entries.map(refKey)).size,
+            agent: [...groups.values()].filter(es => es.some(e => e.kind === 'agent')).length,
+            model: [...groups.values()].filter(es => es.some(e => e.kind === 'model')).length,
+            provider: [...groups.values()].filter(es => es.some(e => e.kind === 'model' && e.provider)).length,
+        } };
     if (!groups.size)
         return result;
     const modelUnits = [...groups.values()].filter(entries => entries.some(e => e.kind === 'model')).length;
@@ -135,6 +140,7 @@ export function render(manifest) {
     const clean = (s) => s.replace(/[|\r\n<>\[\]]/g, ' ').replace(/[`*_!\\]/g, ' ').trim();
     const sorted = (r) => Object.entries(r).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${clean(k)}: ${pct(v)}`).join(', ') || 'Not declared';
     const lines = ['<!-- citeskill:start -->', '## Agentic citations', '', '![CiteSkill](https://img.shields.io/badge/attribution-CiteSkill-blue)', '', 'Contribution shares below are user-declared estimates averaged across cited commits and PRs. They are not measured authorship.', '', `**Estimated model shares:** ${sorted(summary.model)}`, '', `**Estimated provider shares:** ${sorted(summary.provider)}`, '', `**Estimated agent shares:** ${sorted(summary.agent)}`, '', '| Kind | Source | Work |', '| --- | --- | --- |'];
+    lines.splice(6, 0, `Estimate coverage: agents ${summary.coverage.agent}/${summary.coverage.total}, models ${summary.coverage.model}/${summary.coverage.total}, provider-labeled models ${summary.coverage.provider}/${summary.coverage.total} cited work units. Provider shares use the model denominator; undeclared shares remain unknown.`, '');
     for (const e of manifest.entries) {
         const label = clean(e.name);
         const source = e.url ? `[${label}](${e.url.replace(/\(/g, '%28').replace(/\)/g, '%29')})` : label;

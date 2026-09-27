@@ -11,7 +11,7 @@
       "name": "citeskill",
       "source": "./",
       "description": "Record direct agentic-source citations and link them to commits via the CiteSkill CLI.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "category": "productivity"
     }
   ]

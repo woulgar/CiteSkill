@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/woulgar/CiteSkill/main/schema/citations.schema.json",
+  "title": "CiteSkill attribution v1",
+  "description": "Direct citations only. CLI validation additionally checks Git references, unique IDs, safe URLs and aggregate estimates.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "entries"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "entries": { "type": "array", "items": { "$ref": "#/$defs/entry" } }
+  },
+  "$defs": {
+    "label": { "type": "string", "minLength": 1, "pattern": "^(?=.*\\S)[^\\r\\n]+$" },
+    "url": { "type": "string", "format": "uri", "pattern": "^https://[^\\s\\\\@/?#]+(?:[/?#][^\\s\\\\]*)?$" },
+    "entry": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "kind", "name", "ref"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,63}$" },
+        "kind": { "enum": ["agent", "model", "skill", "plugin", "app", "mcp", "project"] },
+        "name": { "$ref": "#/$defs/label" },
+        "provider": { "$ref": "#/$defs/label" },
+        "model": { "$ref": "#/$defs/label" },
+        "url": { "$ref": "#/$defs/url" },
+        "evidenceUrl": { "$ref": "#/$defs/url" },
+        "estimatedShare": { "type": "number", "minimum": 0, "maximum": 100 },
+        "ref": {
+          "oneOf": [
+            { "type": "object", "additionalProperties": false, "required": ["type", "value"], "properties": { "type": { "const": "commit" }, "value": { "type": "string", "pattern": "^[0-9a-fA-F]{7,40}$" } } },
+            { "type": "object", "additionalProperties": false, "required": ["type", "value"], "properties": { "type": { "const": "pr" }, "value": { "type": "string", "pattern": "^[1-9][0-9]*$" } } }
+          ]
+        }
+      },
+      "if": { "required": ["estimatedShare"] },
+      "then": { "properties": { "kind": { "enum": ["agent", "model"] } } }
+    }
+  }
+}

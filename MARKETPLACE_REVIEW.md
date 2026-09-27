@@ -41,3 +41,8 @@ Before each submission or update:
 Official review guidance: [OpenAI plugin submission](https://developers.openai.com/plugins/deploy/submission),
 [OpenAI security and privacy](https://developers.openai.com/plugins/guides/security-privacy),
 and [Anthropic Software Directory Policy](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy).
+
+## 0.1.1 repository release
+
+Local validations cover both bundled CLIs, skills, manifests and the new attribution schema. The release adds no network access, credentials, hooks or MCP servers. Directory submissions/private uploads remain at their previously submitted version until separately updated; a GitHub release is not marketplace approval.
+

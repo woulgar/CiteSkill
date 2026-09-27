@@ -37,6 +37,10 @@ The README section and badge are generated from this record. GitHub's native Con
 
 ## Integrations
 
+### Maintaining citations
+
+Version 0.1.1 adds `update`, `remove`, `relink`, and `normalize`, full-SHA aggregation, and visible estimate coverage. See [maintenance and merge/squash workflows](docs/WORKFLOWS.md), the [JSON Schema](schema/citations.schema.json), and the [CI example](examples/citeskill-validation.yml). Only agents and models receive declared estimates; provider summaries derive from model entries. All other source types are cited without percentages.
+
 The Codex plugin is in [`plugins/citeskill`](plugins/citeskill). The Claude integration is in [`claude-plugin`](claude-plugin). Both guide the same CLI workflow; the manifest is the shared contract.
 
 To install the Codex beta, run `codex plugin marketplace add woulgar/CiteSkill`, then open the Plugins Directory in the ChatGPT desktop app, choose the CiteSkill marketplace, and install CiteSkill. The CLI bundled in the plugin requires Node.js 20+ on the machine where it runs. Public OpenAI directory submission is blocked while the submission portal does not offer Skills only. A private Plugin Creator upload is available to its owner.
@@ -55,6 +59,8 @@ Support development through [GitHub Sponsors](https://github.com/sponsors/woulga
 ![CiteSkill](https://img.shields.io/badge/attribution-CiteSkill-blue)
 
 Contribution shares below are user-declared estimates averaged across cited commits and PRs. They are not measured authorship.
+Estimate coverage: agents 0/7, models 0/7, provider-labeled models 0/7 cited work units. Provider shares use the model denominator; undeclared shares remain unknown.
+
 
 **Estimated model shares:** Not declared
 

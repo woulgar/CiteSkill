@@ -142,3 +142,7 @@ estimates, not authorship claims.
 
 - [reference/manifest.md](reference/manifest.md) — manifest fields, kinds, example.
 - [reference/cli.md](reference/cli.md) — exact CLI commands and behavior.
+
+## Maintaining records (0.1.1)
+
+Use `update --id ID` with descriptive flags from `add` to correct records, or `--unset share,provider` to remove optional fields. IDs stay stable. `remove --id ID` refuses records referenced by current reachable history. `normalize` persists full commit SHAs. After squash/rebase, explicitly use `relink --ids ID,ID --ref-type commit --ref NEW_SHA` (or a PR reference), preserving trailer IDs in the replacement message. Do not infer rewritten mappings or estimates. Clear estimates before combining work units if their total would exceed 100%, then obtain revised declarations. Summary coverage counts cited work units with estimates; provider percentages use the model denominator. The plugin includes `schema/citations.schema.json`; Git and aggregate checks require the CLI.

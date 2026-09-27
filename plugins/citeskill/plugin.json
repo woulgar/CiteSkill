@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "citeskill",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Cite directly used agents, models, skills, plugins, apps, MCP servers, and projects in Git work.",
   "author": {
     "name": "Volkan Kırdar"
