@@ -26,5 +26,12 @@ test('CLI records a real Git commit, renders README, and validates trailers', ()
     run('git', 'add', '.');
     run('git', 'commit', '-m', 'Record source', '-m', 'CiteSkill-Refs: agent-test');
     assert.match(run(process.execPath, cli, 'validate', '--trailers'), /Valid: 1 citation/);
+    const current = run('git', 'branch', '--show-current');
+    run('git', 'checkout', '-b', 'other-work');
+    run('git', 'commit', '--allow-empty', '-m', 'Unmerged citation', '-m', 'CiteSkill-Refs: other-branch-only');
+    run('git', 'checkout', current);
+    assert.match(run(process.execPath, cli, 'validate', '--trailers'), /Valid: 1 citation/);
+    run('git', 'commit', '--allow-empty', '-m', 'Invalid citation on current branch', '-m', 'CiteSkill-Refs: missing-current-id');
+    assert.throws(() => run(process.execPath, cli, 'validate', '--trailers'), /Unknown trailer ID missing-current-id/);
   } finally { rmSync(root, { recursive: true, force: true }); }
 });

@@ -83,7 +83,7 @@ function main() {
         if (args.some(x => x !== '--trailers'))
             throw new Error('Unknown validate option. Use --trailers.');
         if (args.includes('--trailers')) {
-            const log = git(root, 'log', '--format=%H%x00%B%x00', '--all').split('\0');
+            const log = git(root, 'log', '--format=%H%x00%B%x00', 'HEAD').split('\0');
             for (let i = 0; i + 1 < log.length; i += 2)
                 for (const id of parseTrailer(log[i + 1]))
                     if (!ids.has(id))
