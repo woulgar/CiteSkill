@@ -59,7 +59,7 @@ Support development through [GitHub Sponsors](https://github.com/sponsors/woulga
 ![CiteSkill](https://img.shields.io/badge/attribution-CiteSkill-blue)
 
 Contribution shares below are user-declared estimates averaged across cited commits and PRs. They are not measured authorship.
-Estimate coverage: agents 0/7, models 0/7, provider-labeled models 0/7 cited work units. Provider shares use the model denominator; undeclared shares remain unknown.
+Estimate coverage: agents 0/8, models 0/8, provider-labeled models 0/8 cited work units. Provider shares use the model denominator; undeclared shares remain unknown.
 
 
 **Estimated model shares:** Not declared
@@ -91,5 +91,10 @@ Estimate coverage: agents 0/7, models 0/7, provider-labeled models 0/7 cited wor
 | plugin | Plugin Creator | commit c26c18266d06d355b5b0555aa74dfd482e452637 |
 | agent | Codex | commit 308e058ffbb63e410a25f0cdff02c3b596ff6d0f |
 | skill | [cite-work](https://github.com/woulgar/CiteSkill) | commit 308e058ffbb63e410a25f0cdff02c3b596ff6d0f |
+| agent | Codex | commit 83154dda116ec8f484228f488dcba970d4531eb1 |
+| model | Astra | commit 83154dda116ec8f484228f488dcba970d4531eb1 |
+| skill | cite-work | commit 83154dda116ec8f484228f488dcba970d4531eb1 |
+| skill | plugin-creator | commit 83154dda116ec8f484228f488dcba970d4531eb1 |
+| skill | skill-creator | commit 83154dda116ec8f484228f488dcba970d4531eb1 |
 
 <!-- citeskill:end -->

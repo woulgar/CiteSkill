@@ -207,6 +207,53 @@
         "value": "308e058ffbb63e410a25f0cdff02c3b596ff6d0f"
       },
       "url": "https://github.com/woulgar/CiteSkill"
+    },
+    {
+      "id": "codex-011",
+      "kind": "agent",
+      "name": "Codex",
+      "ref": {
+        "type": "commit",
+        "value": "83154dda116ec8f484228f488dcba970d4531eb1"
+      },
+      "provider": "OpenAI"
+    },
+    {
+      "id": "astra-011",
+      "kind": "model",
+      "name": "Astra",
+      "ref": {
+        "type": "commit",
+        "value": "83154dda116ec8f484228f488dcba970d4531eb1"
+      },
+      "provider": "OpenAI"
+    },
+    {
+      "id": "cite-work-011",
+      "kind": "skill",
+      "name": "cite-work",
+      "ref": {
+        "type": "commit",
+        "value": "83154dda116ec8f484228f488dcba970d4531eb1"
+      }
+    },
+    {
+      "id": "plugin-creator-011",
+      "kind": "skill",
+      "name": "plugin-creator",
+      "ref": {
+        "type": "commit",
+        "value": "83154dda116ec8f484228f488dcba970d4531eb1"
+      }
+    },
+    {
+      "id": "skill-creator-011",
+      "kind": "skill",
+      "name": "skill-creator",
+      "ref": {
+        "type": "commit",
+        "value": "83154dda116ec8f484228f488dcba970d4531eb1"
+      }
     }
   ]
 }
