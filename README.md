@@ -98,3 +98,14 @@ Estimate coverage: agents 0/8, models 0/8, provider-labeled models 0/8 cited wor
 | skill | skill-creator | commit 83154dda116ec8f484228f488dcba970d4531eb1 |
 
 <!-- citeskill:end -->
+
+
+<!-- company-project-standard:v1 -->
+## Company documentation standard
+
+Read [PROJECT_STANDARDS.md](C:/MyCodes/company/docs/PROJECT_STANDARDS.md) for shared file formats and new-project templates.
+Existing project requirements, storage contracts and model policies remain authoritative;
+this reference does not migrate domain data or change those requirements.
+Read AGENTS.md, constitution.md and HANDOVER.md before working. Record handovers with
+evidence and UTC timestamps. Do not publish or create a remote for a local-only project.
+<!-- /company-project-standard -->

@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "template_version": 1,
+  "project_id": "7dfcf9899dfe7d5a",
+  "publication_policy": "github_existing",
+  "allow_create_remote": false,
+  "allow_publish": false,
+  "instruction_sources_before_apply": []
+}
